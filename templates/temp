@@ -1,0 +1,163 @@
+<div class="grid-container">
+      <div class="grid-item" id="one">
+        <!-- sidebar starts -->
+
+        <div class="sidebar">
+          <a href="/">
+            <div class="sidebarOption active">
+              <h2>All</h2>
+            </div>
+          </a>
+
+          <a href="?tag=love">
+            <div class="sidebarOption active">
+              <h2>#Love</h2>
+            </div>
+          </a>
+
+          <a href="?tag=fashion">
+            <div class="sidebarOption active">
+              <h2>#Fashion</h2>
+            </div>
+          </a>
+
+          <a href="?tag=art">
+            <div class="sidebarOption active">
+              <h2>#Art</h2>
+            </div>
+          </a>
+
+          <a href="?tag=politics">
+            <div class="sidebarOption active">
+              <h2>#Politics</h2>
+            </div>
+          </a>
+
+          <a href="?tag=photography">
+            <div class="sidebarOption active">
+              <h2>#Photography</h2>
+            </div>
+          </a>
+
+          <a href="?tag=happy">
+            <div class="sidebarOption active">
+              <h2>#Happy</h2>
+            </div>
+          </a>
+
+          <a href="?tag=cute">
+            <div class="sidebarOption active">
+              <h2>#Cute</h2>
+            </div>
+          </a>
+
+          <a href="?tag=travel">
+            <div class="sidebarOption active">
+              <h2>#Travel</h2>
+            </div>
+          </a>
+
+          <a href="?tag=me">
+            <div class="sidebarOption active">
+              <h2>#Me</h2>
+            </div>
+          </a>
+
+          <a href="?tag=fun">
+            <div class="sidebarOption active">
+              <h2>#Fun</h2>
+            </div>
+          </a>
+
+          <a href="?tag=food">
+            <div class="sidebarOption active">
+              <h2>#Food</h2>
+            </div>
+          </a>
+
+          <a href="?tag=life">
+            <div class="sidebarOption active">
+              <h2>#Life</h2>
+            </div>
+          </a>
+
+          <a href="?tag=animal">
+            <div class="sidebarOption active">
+              <h2>#Animal</h2>
+            </div>
+          </a>
+
+          <a href="?tag=nature">
+            <div class="sidebarOption active">
+              <h2>#Nature</h2>
+            </div>
+          </a>
+
+          <a href="?tag=beauty">
+            <div class="sidebarOption active">
+              <h2>#Beauty</h2>
+            </div>
+          </a>
+
+          <a href="?tag=family">
+            <div class="sidebarOption active">
+              <h2>#Family</h2>
+            </div>
+          </a>
+        </div>
+
+        <!-- <ul>
+          <li>Love</li><hr>
+          <li>Fashion</li><hr>
+          <li>Art</li><hr>
+          <li>Politics</li><hr>
+          <li>Photography</li><hr>
+          <li>Happy</li><hr>
+          <li>Cute</li><hr>
+          <li>Travel</li><hr>
+          <li>Me</li><hr>
+          <li>Fun</li><hr>
+          <li>Food</li><hr>
+          <li>Life</li><hr>
+          <li>Animal</li><hr>
+          <li>Nature</li><hr>
+          <li>Beauty</li><hr>
+          <li>Family</li><hr>
+        </ul> -->
+      </div>
+
+      <div class="grid-item" id="two">
+        {% for tweet in tweets %}
+
+        <div class="post">
+          <div class="post__avatar">
+            <img
+              id="profile_img"
+              src="https://health.wyo.gov/wp-content/uploads/2020/07/Contact-Icon-2.png"
+              alt=""
+            />
+          </div>
+
+          <div class="post__body">
+            <div class="post__header">
+              <div class="post__headerText">
+                <h3>{{tweet.titlee}}</h3>
+              </div>
+              {% if tweet.image_post%}
+              <div>
+                <img src="{{tweet.image_post}}" />
+              </div>
+              {% endif %}
+              <div class="post__headerDescription">
+                <p>{{tweet.description}}</p>
+              </div>
+              <div style="color: #77b4dd">#{{tweet.tag}}</div>
+            </div>
+            <div class="post__footer">
+              <span class="material-icons"> {{tweet.creation_date}} </span>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>

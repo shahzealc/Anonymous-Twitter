@@ -1,0 +1,400 @@
+{% load static %}
+
+<html>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  <!-- Font -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous"
+  />
+
+  <head>
+    <title>Anonymous Tweets</title>
+
+    <style>
+      body {
+        background-color: rgba(0, 0, 0, 255);
+        overflow: hidden;
+      }
+
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        /* color: #ebebeb; */
+      }
+
+      .navbar {
+        background-color: #15181c !important;
+        color: white;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        column-gap: 50px;
+      }
+
+      #one {
+        font-family: "Nunito";
+        margin: 20px;
+        margin-right: -20px;
+        padding: 10px;
+        /* border-right: 1px solid #4fb4f7; */
+        /* position: fixed; */
+      }
+      #two {
+        margin: 5px;
+        /* margin-left: 280px; */
+        margin-left: -50px;
+        padding: 10px;
+        width: 650px;
+        display: block;
+        max-height: 600;
+        /* scroll:hidden; */
+        /* border: 2px solid rgba(255, 255, 255, 0.685); */
+        overflow: auto;
+        border-radius: 10px;
+        background-color: #15181c;
+      }
+      #two::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+      }
+      #three {
+        /* position:fixed;
+        margin-top:25px;
+        margin-left: 1000px; */
+        display: block;
+        max-height: 610px;
+        overflow-y: auto;
+        margin-left: -70px;
+        margin-top: 7px;
+
+        border: 2px solid white;
+        border-radius: 10px;
+      }
+      #three::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+      }
+
+      .sidebar {
+        flex: 0.2;
+        /* font-family: "Times New Roman", Times, serif; */
+        min-width: 250px;
+        margin-top: -5px;
+        padding-left: 20px;
+        padding-right: 30px;
+        /* border-right: 1px solid #4fb4f7; */
+      }
+      .sidebarOption {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        margin: -15px;
+      }
+      .sidebarOption {
+        padding: 13px;
+      }
+
+      .sidebarOption h2 {
+        /* font-weight: 800; */
+        font-size: 20px;
+        /* margin-right: 20px; */
+      }
+
+      .sidebarOption:hover {
+        background-color: #15181c;
+        border-radius: 10px;
+        color: #1496e7;
+        transition: color 100ms ease-out;
+      }
+
+      .sidebarOption.active {
+        /* margin: -15px; */
+        color: white;
+      }
+
+      /* Post Start */
+      /* post */
+      .post__avatar img {
+        border-radius: 50%;
+        height: 40px;
+      }
+
+      .post {
+        display: flex;
+        align-items: flex-start;
+        /* border: 2px solid #96c6e6; */
+        border-bottom: 2px solid rgba(255, 255, 255, 0.685);
+        /* border-radius: 10px; */
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+
+        /* display: flex; */
+      }
+
+      .post__body img {
+        min-width: 300px;
+        min-height: 300px;
+        max-width: 450px;
+        max-height: 450px;
+        object-fit: contain;
+        border-radius: 20px;
+        margin: 20px;
+        margin-left: 0px;
+      }
+
+      .post__footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+
+      .post__badge {
+        font-size: 14px !important;
+        color: #50b7f5;
+        margin-right: 5px;
+      }
+
+      .post__headerSpecial {
+        font-weight: 600;
+        font-size: 12px;
+        color: gray;
+      }
+
+      .post__headerText h3 {
+        font-size: 20px;
+        margin-bottom: 5px;
+        margin-top: 15px;
+        color: #50b7f5;
+      }
+
+      .post__headerDescription {
+        margin-bottom: 10px;
+        margin-top: 20px;
+        /* font-size: 15px; */
+        color: white;
+      }
+
+      .post__body {
+        flex: 1;
+        padding: 10px;
+      }
+
+      .post__avatar {
+        padding: 20px;
+      }
+      a {
+        text-decoration: none;
+        text-decoration-color: none;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      /* Post End */
+
+      .news_container {
+        border-bottom: 2px solid white;
+        padding: 20px;
+      }
+      #news_img {
+        max-height: 350px;
+        max-width: 350px;
+      }
+      #news_title {
+        color: white;
+        padding-top: 10px;
+      }
+      #news_description {
+        color: white;
+      }
+      #news_tag {
+        color: #50b7f5;
+        text-align: center;
+        margin-top: 20px;
+        border-radius: 20px;
+        /* border:2px solid white; */
+        background-color: #15181c;
+        padding: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    {% include 'navbar.html' %}
+
+    <div class="grid-container">
+      <div class="grid-item" id="one">
+        <!-- sidebar starts -->
+
+        <div class="sidebar">
+          <a href="/">
+            <div class="sidebarOption active">
+              <h2 style="margin-top: 0px">All</h2>
+            </div>
+          </a>
+
+          <a href="?tag=love">
+            <div class="sidebarOption active">
+              <h2>#Love</h2>
+            </div>
+          </a>
+
+          <a href="?tag=fashion">
+            <div class="sidebarOption active">
+              <h2>#Fashion</h2>
+            </div>
+          </a>
+
+          <a href="?tag=art">
+            <div class="sidebarOption active">
+              <h2>#Art</h2>
+            </div>
+          </a>
+
+          <a href="?tag=politics">
+            <div class="sidebarOption active">
+              <h2>#Politics</h2>
+            </div>
+          </a>
+
+          <a href="?tag=travel">
+            <div class="sidebarOption active">
+              <h2>#Travel</h2>
+            </div>
+          </a>
+
+          <a href="?tag=me">
+            <div class="sidebarOption active">
+              <h2>#Me</h2>
+            </div>
+          </a>
+
+          <a href="?tag=fun">
+            <div class="sidebarOption active">
+              <h2>#Fun</h2>
+            </div>
+          </a>
+
+          <a href="?tag=educational">
+            <div class="sidebarOption active">
+              <h2>#Educational</h2>
+            </div>
+          </a>
+
+          <a href="?tag=life">
+            <div class="sidebarOption active">
+              <h2>#Life</h2>
+            </div>
+          </a>
+
+          <a href="?tag=nature">
+            <div class="sidebarOption active">
+              <h2>#Nature</h2>
+            </div>
+          </a>
+
+          <a href="?tag=beauty">
+            <div class="sidebarOption active">
+              <h2>#Beauty</h2>
+            </div>
+          </a>
+
+          <a href="?tag=family">
+            <div class="sidebarOption active">
+              <h2>#Family</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid-item" id="two">
+        {% for tweet in tweets %}
+
+        <div class="post">
+          <div class="post__avatar">
+            <img
+              id="profile_img"
+              src="https://health.wyo.gov/wp-content/uploads/2020/07/Contact-Icon-2.png"
+              alt=""
+            />
+          </div>
+
+          <div class="post__body">
+            <div class="post__header">
+              <div class="post__headerText">
+                <h3>{{tweet.titlee}}</h3>
+              </div>
+              {% if tweet.image_post%}
+              <div>
+                <img src="{{tweet.image_post}}" />
+              </div>
+              {% endif %}
+              <div class="post__headerDescription">
+                <p>{{tweet.description}}</p>
+              </div>
+              <div style="color: #77b4dd">#{{tweet.tag}}</div>
+            </div>
+            <div class="post__footer">
+              <span class="material-icons" style="color: white">
+                {{tweet.creation_date}}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+
+      <div class="grid-item" id="three">
+        <h3 id="news_tag">What's Happening</h3>
+
+        {% for title, des, i, url in news %}
+        <div class="news_container">
+          <img src="{{ i }}" alt="" id="news_img" />
+          <h4 id="news_title">{{ title }}</h4>
+          {{ value|linebreaks }}
+
+          <p id="news_description">{{ des }}</p>
+          {{ value|linebreaks }}
+          <a href="{{ url }}" target="_blank">Read more..</a>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
