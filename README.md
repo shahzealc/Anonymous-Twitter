@@ -1,5 +1,4 @@
-# Django_anonymous_twitter
-This website is used to upload Tweets Anonymous, the user not need to Register with their personal info and can upload any post or Tweets Anonymously.
+
 # Django Anonymous Twitter
 
 Django Anonymous Twitter is a web application that allows users to upload tweets anonymously without the need to register with their personal information. Users can post or tweet anonymously and also view trending news.
