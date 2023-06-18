@@ -30,7 +30,7 @@ Follow these instructions to get a copy of the Django Anonymous Twitter project 
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/your-username/django-anonymous-twitter.git
+   git clone https://github.com/shahzealc/Django_anonymous_twitter.git
  
 2. Navigate to the project directory:
 
