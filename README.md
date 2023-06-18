@@ -15,6 +15,7 @@ Django Anonymous Twitter is a web application that allows users to upload tweets
 - Python: Programming language used for the backend development.
 - HTML/CSS: Frontend markup and styling.
 - SQLite: Database for storing tweets.
+- API(NewsAPIClient): For rendering latest news
 
 ## Getting Started
 
