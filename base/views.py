@@ -12,7 +12,7 @@ from newsapi import NewsApiClient
 
 def home(request):
 
-    newsapi = NewsApiClient(api_key ='087496aa37974a859152c4ce6b4285ba')
+    newsapi = NewsApiClient(api_key ='APIKeywhichicantshowhere')
     top = newsapi.get_top_headlines(sources ='techcrunch')
   
     l = top['articles']
