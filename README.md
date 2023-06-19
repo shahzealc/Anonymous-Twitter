@@ -42,13 +42,18 @@ Follow these instructions to get a copy of the Django Anonymous Twitter project 
     ```shell
     pip install -r requirements.txt
 
-4. Run the application:
+4. Get your API Key from NewsApiClient
+
+    Replace your API key with `APIKeywhichicantshowhere` in the code
+     
+5. Run the application:
 
     ```shell
     python manage.py runserver
 
-5. Open your web browser and visit:
+6. Open your web browser and visit:
    
    ```shell
    http://localhost:8000 
+
    
